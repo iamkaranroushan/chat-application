@@ -1,0 +1,11 @@
+#chat-window {
+    overflow-y: auto; /* Enable vertical scrolling */
+    /* Set the height of the chat window */
+    scrollbar-width: none; /* Hide the scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide the scrollbar in IE/Edge */
+  }
+  
+  /* Hide the scrollbar in Chrome/Safari */
+  #chat-window::-webkit-scrollbar {
+    display: none;
+  }
