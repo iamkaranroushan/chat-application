@@ -49,39 +49,7 @@ const io = new Server(server, {
 
 
 // Handle Socket.IO events
-io.on("connect", (socket) => {
- 
 
-  
-  // Authentication successful, associate the user with the socket connection
-  
-  console.log("A user connected");
-  console.log("this is socket Id after try catch :", socket.id);
-  
- 
-  // Broadcast a message when a new user joins
-  socket.broadcast.emit("message", {
-    id: socket.id,
-    message: "Hello, I just joined",
-  });
-
-
-
-  // Listen for incoming messages from clients
-  socket.on("message", (message) => {
-    console.log(`Message sent by: ${socket.id}`, message);
-    // Broadcast the message to all connected clients
-    io.emit("message", message);
-  });
-
-
-
-  // Listen for disconnection events
-  socket.on("disconnect", () => {
-    io.emit("message", { id: socket.id, message: "left" });
-    console.log("A user disconnected");
-  });
-});
 
 connectDb()
   .then(() =>
